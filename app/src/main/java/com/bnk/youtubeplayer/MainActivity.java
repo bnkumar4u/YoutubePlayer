@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         //get reference to the Connectivity manager to check state of network
         ConnectivityManager connMgr=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        //get details on currently active default data network
+        //get details on currently active pic1 data network
         NetworkInfo networkInfo=connMgr.getActiveNetworkInfo();
 
         // If there is a network connection, fetch data
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         uriBuilder.appendQueryParameter("part","snippet,contentDetails");
         uriBuilder.appendQueryParameter("maxResults","50")
                 .appendQueryParameter("playlistId","PLsyeobzWxl7pFZoGT1NbZJpywedeyzyaf")
-                .appendQueryParameter("fields","pageInfo,nextPageToken,items/snippet/title,items/contentDetails/videoId")
+                .appendQueryParameter("fields","pageInfo,nextPageToken,items/snippet(title,description,thumbnails),items/contentDetails/videoId")
                 .appendQueryParameter("key","AIzaSyBd2gGjpgdsYC42-E7I6LdjJsJfZWq_yrg");
 
         return new VideosLoader(this,uriBuilder.toString());

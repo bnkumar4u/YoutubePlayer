@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -27,8 +30,15 @@ class VideosAdapter extends ArrayAdapter {
         }
         VideoData currentVideo = (VideoData) getItem(position);
 
-        TextView title = listItemView.findViewById(R.id.title);
+        TextView title = listItemView.findViewById(R.id.simple_title);
         title.setText(currentVideo.getTitle());
+
+        ImageView imageView =  listItemView.findViewById(R.id.simple_image);
+
+        Glide
+                .with(getContext())
+                .load(currentVideo.getThumbnailURL())
+                .into(imageView);
 
         return listItemView;
     }

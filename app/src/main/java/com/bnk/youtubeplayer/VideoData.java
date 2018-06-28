@@ -2,13 +2,36 @@ package com.bnk.youtubeplayer;
 
 class VideoData {
 
-    String title,videoId;
+    String title,videoId,description , thumbnailURL;
     static String nextToken;
     static int totalResults;
 
     public VideoData(String title, String videoId) {
         this.title = title;
         this.videoId = videoId;
+    }
+
+    public VideoData(String title, String videoId, String description, String thumbnailURL) {
+        this.title = title;
+        this.videoId = videoId;
+        this.description = description;
+        this.thumbnailURL = thumbnailURL;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getThumbnailURL() {
+        return thumbnailURL;
+    }
+
+    public void setThumbnailURL(String thumbnailURL) {
+        this.thumbnailURL = thumbnailURL;
     }
 
     public String getTitle() {

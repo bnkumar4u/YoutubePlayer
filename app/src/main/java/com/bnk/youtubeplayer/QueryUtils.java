@@ -63,10 +63,16 @@ public final class QueryUtils {
             for (int i = 0; i< items.length(); i++)
             {
                 JSONObject currentVideo = items.getJSONObject(i);
-                String title = currentVideo.getJSONObject("snippet").getString("title");
+                JSONObject snippet = currentVideo.getJSONObject("snippet");
+                String title = snippet.getString("title");
+                String des = snippet.getString("description");
+
+                String thumnail = snippet.getJSONObject("thumbnails").getJSONObject("default")
+                                    .getString("url");
+
                 String videoId = currentVideo.getJSONObject("contentDetails").getString("videoId");
 
-                VideoData videoData = new VideoData(title,videoId);
+                VideoData videoData = new VideoData(title,videoId,des,thumnail);
 
                 videoDatas.add(videoData);
             }
