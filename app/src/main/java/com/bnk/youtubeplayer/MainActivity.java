@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final String YOUTUBE_PLAYLIST_BASE_URL="https://www.googleapis.com/youtube/v3/playlistItems";
     public static final String LOG_TAG = MainActivity.class.getName();
     private static final int YOUTUBE_LOADER_ID=1;
+    private static transient final String ApiKey="AIzaSyBd2gGjpgdsYC42-E7I6LdjJsJfZWq_yrg";
 
     /** Adapter for the list of videos */
     private VideosAdapter adapter;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         uriBuilder.appendQueryParameter("maxResults","50")
                 .appendQueryParameter("playlistId","PLsyeobzWxl7pFZoGT1NbZJpywedeyzyaf")
                 .appendQueryParameter("fields","pageInfo,nextPageToken,items/snippet(title,description,thumbnails),items/contentDetails/videoId")
-                .appendQueryParameter("key","AIzaSyBd2gGjpgdsYC42-E7I6LdjJsJfZWq_yrg");
+                .appendQueryParameter("key",ApiKey);
 
         return new VideosLoader(this,uriBuilder.toString());
     }
